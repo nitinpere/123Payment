@@ -1,7 +1,6 @@
 *** Settings ***
 Library  SeleniumLibrary
 Resource  ../variables/GlobalVariables.robot
-
 *** Keywords ***
 Begining the test
     Open Browser  about:blank  chrome
@@ -28,7 +27,7 @@ Verify Landing page content
 
 Add Items
     Click Button  xpath://input[@id= 'ContentPlaceHolder2_btnPaint4']
-    SLEEP  3s
+    SLEEP  1s
     Click Button  xpath://input[@id= 'ContentPlaceHolder2_btnPaint3']
 
 Verify Price
@@ -43,30 +42,27 @@ Verify "Customer Detail" page is loaded
 
 Select the Country
     Select From List by Label  xpath://select[@id='ContentPlaceHolder2_ddlCountry']    THAILAND
-    Sleep  10s
 
 Merchant ID
     Clear Element Text  xpath://input[@id='ContentPlaceHolder2_txtMerchantID']
-    Input Text  xpath://input[@id='ContentPlaceHolder2_txtMerchantID']  merchant@shopping.com
+    Input Text  xpath://input[@id='ContentPlaceHolder2_txtMerchantID']  merchant_th@shopping.com
     Click Element  xpath://input[@name='ctl00$ContentPlaceHolder2$txtSecretKey']
-    Sleep  8s
+    Sleep  2s
 Name
-    Input Text  xpath://input[@id='ContentPlaceHolder2_txtName']  nitin
+    Input Text  xpath://input[@id='ContentPlaceHolder2_txtName']  WaghMay
 
 Email
-    Input Text  xpath://input[@id='ContentPlaceHolder2_txtEmail']  nitin.bor@2c2pexternal.com
+    Input Text  xpath://input[@id='ContentPlaceHolder2_txtEmail']  wagh.may@2c2pexternal.com
 
 Mobile No.
-    Input Text  xpath://input[@id='ContentPlaceHolder2_txtMobile']  7798304854
+    Input Text  xpath://input[@id='ContentPlaceHolder2_txtMobile']  8798304357
 
 AgentCode
     Select From List by Label  xpath://select[@id='ContentPlaceHolder2_ddlAgentCode']    BANGKOKPAY
 
 Generate XML
-    Sleep  3s
     Scroll Element Into View  xpath://input[@name='ctl00$ContentPlaceHolder2$btnXml']
     Click Button  xpath://input[@name='ctl00$ContentPlaceHolder2$btnXml']
-    SLEEP  2s
 
 Post To 1-2-3
     Click Button  xpath://input[@value='Post to 1-2-3']
@@ -79,3 +75,37 @@ Verify Payment Page
     Page Should Contain Element  xpath=/html/body/div[1]/div[3]/div[1]/div/ul/li[2]/span[1]  Amount ( THB )
     Page Should Contain Element  xpath=/html/body/div[1]/div[3]/div[1]/div/div[2]/span[1]  Mobile No. (Ref.2)
 
+capture page screenshot
+
+Final Amount
+    ${amount_value}=   Get Text  xpath=//span[@class='amount']
+    Log To Console  ${amount_value}
+    ${remove_quama}=  Evaluate    '${amount_value}'.replace(',','')
+    ${Final_amount_value}=   Fetch From Left	  ${remove_quama}     .
+    log to console  ${Final_amount_value}
+    Sleep  2s
+
+Verify Payment Ref code
+    ${Payment_Ref_code}=   Get Text  xpath=//span[@class='code']
+    Log To Console  ${Payment_Ref_code}
+
+Return To Merchant
+    Click Button  xpath://input[@id='btnGoBack']
+
+AgentTab
+     Click Element  xpath://a[@href='Agent.aspx']
+
+Agent Payment.ref.code
+    Input Text  xpath://input[@id='txtPaymentCode']  ${Payment_Ref_code}
+
+Amount
+    Input Text  xpath://input[@id='txtAmount']  ${Final_amount_value}
+
+Select Agent
+    Select From List by Label  xpath://select[@name='ddlAgentCode']  SCB
+
+Validate
+    Click Element  xpath://input[@name='btnValidate']
+
+Confirm
+    Click Element  xpath://input[@name='btnConfirm']
