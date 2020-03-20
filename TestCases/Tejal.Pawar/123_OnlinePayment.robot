@@ -32,46 +32,26 @@ To verify page is loaded
 To verify able to fill the customer details
     [Documentation]  This is test 5
     [Tags]  Test5
-    Select the Country TH
-    Merchant ID TH
+    Select the Country MY
+    Merchant ID MY
     Mobile No.
     Email
     Name
-    AgentCode
+    AgentCode FPX
     Generate XML
     Post To 1-2-3
-    Next
 
-Get Details on PaymentSlip
-    SLEEP  2s
-    Final Amount
-    Verify Payment Ref code
-
-#capture page screenshot
+Login Credentials
     [Documentation]  This is test 6
     [Tags]  Test6
+    Usename
+    Password
+    SignIn
 
-Back to Demoshop
+Confirm Payment
     [Documentation]  This is test 7
     [Tags]  Test7
-    SLEEP  2s
-    Return To Merchant
-
-Enter the Agent details
-    [Documentation]  This is test 8
-    [Tags]  Test8
-    ClickAgentTab
-    SLEEP  2s
-    Enter Agent Payment.ref.code
-    Enter Amount
-    Select Agent
-    Validate
-    Confirm
-
-#capture page screenshot
-    [Documentation]  This is test 9
-    [Tags]  Test9
-
-
+    Confirm details
+    Submit
 
 

@@ -45,14 +45,30 @@ Check Out
 Verify "Customer Detail" page is loaded
     Page Should Contain Element  xpath=/html/body/div[3]/div
 
-Select the Country
+Select the Country TH
     Select From List by Label  xpath://select[@id='ContentPlaceHolder2_ddlCountry']    THAILAND
 
-Merchant ID
+Select the Country MY
+    Select From List by Label  xpath://select[@id='ContentPlaceHolder2_ddlCountry']    MALAYSIA
+
+Merchant ID TH
     Clear Element Text  xpath://input[@id='ContentPlaceHolder2_txtMerchantID']
     Input Text  xpath://input[@id='ContentPlaceHolder2_txtMerchantID']  merchant_th@shopping.com
     Click Element  xpath://input[@name='ctl00$ContentPlaceHolder2$txtSecretKey']
     Sleep  2s
+
+Merchant ID TH
+    Clear Element Text  xpath://input[@id='ContentPlaceHolder2_txtMerchantID']
+    Input Text  xpath://input[@id='ContentPlaceHolder2_txtMerchantID']  merchant_th@shopping.com
+    Click Element  xpath://input[@name='ctl00$ContentPlaceHolder2$txtSecretKey']
+    Sleep  2s
+
+Merchant ID MY
+    Clear Element Text  xpath://input[@id='ContentPlaceHolder2_txtMerchantID']
+    Input Text  xpath://input[@id='ContentPlaceHolder2_txtMerchantID']  458458000000000
+    Click Element  xpath://input[@name='ctl00$ContentPlaceHolder2$txtSecretKey']
+    Sleep  2s
+
 Name
     Input Text  xpath://input[@id='ContentPlaceHolder2_txtName']  WaghMay
 
@@ -65,12 +81,17 @@ Mobile No.
 AgentCode
     Select From List by Label  xpath://select[@id='ContentPlaceHolder2_ddlAgentCode']    BANGKOKPAY
 
+AgentCode FPX
+    Select From List by Label  xpath://select[@id='ContentPlaceHolder2_ddlAgentCode']    FPX_SBIA
+
 Generate XML
     Scroll Element Into View  xpath://input[@name='ctl00$ContentPlaceHolder2$btnXml']
     Click Button  xpath://input[@name='ctl00$ContentPlaceHolder2$btnXml']
 
 Post To 1-2-3
     Click Button  xpath://input[@value='Post to 1-2-3']
+
+Next
     Click Button  xpath://input[@id='nextButton']
 
 
@@ -115,3 +136,19 @@ Validate
 
 Confirm
     Click Element  xpath://input[@name='btnConfirm']
+
+Usename
+    Input Text  xpath://input[@id='userId']  1234
+
+Password
+    Input Text  xpath://input[@id='password']  1234
+
+SignIn
+    Sleep  2s
+    Click Button  xpath://button[@type='submit']
+
+Confirm details
+    Click Button  xpath://button[text()='Confirm']
+
+Submit
+    Click Button  xpath://input[@name='Submit2']
