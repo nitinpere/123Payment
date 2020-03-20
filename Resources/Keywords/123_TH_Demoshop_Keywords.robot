@@ -1,6 +1,11 @@
 *** Settings ***
 Library  SeleniumLibrary
 Resource  ../variables/GlobalVariables.robot
+
+*** Variables ***
+${Payment_Ref_code}
+${Final_amount_value}
+
 *** Keywords ***
 Begining the test
     Open Browser  about:blank  chrome
@@ -92,13 +97,13 @@ Verify Payment Ref code
 Return To Merchant
     Click Button  xpath://input[@id='btnGoBack']
 
-AgentTab
+ClickAgentTab
      Click Element  xpath://a[@href='Agent.aspx']
 
-Agent Payment.ref.code
+Enter Agent Payment.ref.code
     Input Text  xpath://input[@id='txtPaymentCode']  ${Payment_Ref_code}
 
-Amount
+Enter Amount
     Input Text  xpath://input[@id='txtAmount']  ${Final_amount_value}
 
 Select Agent

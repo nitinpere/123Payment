@@ -41,7 +41,33 @@ To verify able to fill the customer details
     Generate XML
     Post To 1-2-3
 
+Get Details on PaymentSlip
+    Final Amount
+    Verify Payment Ref code
+
 capture page screenshot
     [Documentation]  This is test 6
     [Tags]  Test6
+
+Back to Demoshop
+    [Documentation]  This is test 7
+    [Tags]  Test7
+    Return To Merchant
+
+Enter the Agent details
+    [Documentation]  This is test 8
+    [Tags]  Test8
+    ClickAgentTab
+    Enter Agent Payment.ref.code
+    Enter Amount
+    Select Agent
+    Validate
+    Confirm
+
+capture page screenshot
+    [Documentation]  This is test 9
+    [Tags]  Test9
+
+
+
 
