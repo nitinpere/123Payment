@@ -71,6 +71,7 @@ Generate XML
 
 Post To 1-2-3
     Click Button  xpath://input[@value='Post to 1-2-3']
+    Click Button  xpath://input[@id='nextButton']
 
 
 Verify Payment Page
@@ -80,13 +81,13 @@ Verify Payment Page
     Page Should Contain Element  xpath=/html/body/div[1]/div[3]/div[1]/div/ul/li[2]/span[1]  Amount ( THB )
     Page Should Contain Element  xpath=/html/body/div[1]/div[3]/div[1]/div/div[2]/span[1]  Mobile No. (Ref.2)
 
-capture page screenshot
+#capture page screenshot
 
 Final Amount
     ${amount_value}=   Get Text  xpath=//span[@class='amount']
     Log To Console  ${amount_value}
     ${remove_quama}=  Evaluate    '${amount_value}'.replace(',','')
-    ${Final_amount_value}=   Fetch From Left	  ${remove_quama}     .
+    ${Final_amount_value}=   Fetch From Left  ${remove_quama}  .
     log to console  ${Final_amount_value}
     Sleep  2s
 

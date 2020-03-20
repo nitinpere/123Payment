@@ -3,7 +3,7 @@ Library  SeleniumLibrary
 Resource  ../../Resources/Keywords/123_TH_Demoshop_Keywords.robot
 
 Suite Setup  Begining the test
-Suite Teardown  Ending the test
+#Suite Teardown  Ending the test
 
 *** Test Cases ***
 Login To The Demoshop
@@ -42,29 +42,32 @@ To verify able to fill the customer details
     Post To 1-2-3
 
 Get Details on PaymentSlip
+    SLEEP  2s
     Final Amount
     Verify Payment Ref code
 
-capture page screenshot
+#capture page screenshot
     [Documentation]  This is test 6
     [Tags]  Test6
 
 Back to Demoshop
     [Documentation]  This is test 7
     [Tags]  Test7
+    SLEEP  2s
     Return To Merchant
 
 Enter the Agent details
     [Documentation]  This is test 8
     [Tags]  Test8
     ClickAgentTab
+    SLEEP  2s
     Enter Agent Payment.ref.code
     Enter Amount
     Select Agent
     Validate
     Confirm
 
-capture page screenshot
+#capture page screenshot
     [Documentation]  This is test 9
     [Tags]  Test9
 
