@@ -9,7 +9,7 @@ Suite Setup  Begining the test
 Login To The Demoshop
     [Documentation]  This is test 1
     [Tags]  Test1
-    Navigate to
+    Navigate to Demoshop URL
     Verify page is loaded
 
 "Landing" page should match requirements

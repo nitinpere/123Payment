@@ -1,6 +1,6 @@
 *** Settings ***
 Library  SeleniumLibrary
-Resource  ../../Resources/Keywords/123_Demoshop_Keywords.robot
+Resource  ../../Resources/Keywords/123_PGW_Keywords.robot
 
 Suite Setup  Begining the test
 #Suite Teardown  Ending the test
@@ -9,7 +9,7 @@ Suite Setup  Begining the test
 Login To The Demoshop
     [Documentation]  This is test 1
     [Tags]  Test1
-    Navigate to
+    Navigate to Demoshop URL
     Verify page is loaded
 
 "Landing" page should match requirements

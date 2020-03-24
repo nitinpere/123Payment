@@ -14,21 +14,27 @@ Begining the test
 Ending the test
     Close Browser
 
-Navigate to
+Navigate to Demoshop URL
     Go To  ${URL}
 
-Login to 123 Admin Portal
-    Input Text  xpath=//*[@id="identifierId"]
-    Click Element  xpath=(//div[@class='d2laFc'])[2]
+Navigate to 123 Admin URL
+    Go To  ${Admin_URL}
 
 Verify page is loaded
     Page Should Contain Element  xpath=/html/body/div[1]/div  123 Demo Shop
+
+Verify 123 Admin page is loaded
+    Page Should Contain Element  xpath=//label[text()='123 Admin Report']
 
 Verify Landing page content
     Page Should Contain Image  xpath=//*[@id="form1"]/div[3]/table[1]/tbody/tr[1]/td[1]/img
     Page Should Contain Image  xpath=//*[@id="form1"]/div[3]/table[1]/tbody/tr[1]/td[3]/img
     Page Should Contain Image  xpath=//*[@id="form1"]/div[3]/table[1]/tbody/tr[1]/td[5]/img
     Page Should Contain Image  xpath=//*[@id="form1"]/div[3]/table[1]/tbody/tr[1]/td[7]/img
+
+Verify 123 Admin Landing page content
+    Page Should Contain Image  xpath://img[@src='/AdminService/Content/images/icon_txn_blue.png']
+    Page Should Contain Image  xpath://img[@src='/AdminService/Content/images/icon_mer_blue.png']
 
 Add Items
     Click Button  xpath://input[@id= 'ContentPlaceHolder2_btnPaint4']
@@ -152,3 +158,28 @@ Confirm details
 
 Submit
     Click Button  xpath://input[@name='Submit2']
+
+# Admin Keywords
+
+Click Login with google
+      Click Element  xpath://img[@src='/AdminService/Content/images/login-google.png']
+      Sleep  2s
+
+Enter SignIn Credentials
+      Input Text  xpath://input[@id='identifierId']  wagh.may@2c2pexternal.com
+      Click Element  xpath://span[text()='Next']
+      Sleep  2s
+      Input Text  xpath://input[@class='whsOnd zHQkBf' and @name='password']  tejal@1234
+      Click Element  xpath://span[@class='RveJvd snByac' and text()='Next']
+      Sleep  2s
+
+Click on Merchant Tab
+    Click Element  xpath://img[@src='/AdminService/Content/images/icon_mer_blue.png']
+
+Advance Search for Merchant
+    Click Element  xpath://a[@class='link' and text()='Advance search']
+
+Filter by Merchant Id
+     Input Text  xpath://input[@id='MerchantID']  ${Default_MID}
+     Sleep  2s
+
