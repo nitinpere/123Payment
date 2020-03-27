@@ -1,9 +1,9 @@
 *** Variables ***
 ${URL} =  https://uat.123.co.th/DemoShopping/shopping.aspx
-${Admin_URL} =  https://uatadmin123.2c2p.com:8123/AdminService/Home/Index
-${Default_MID} = merchant@shopping.com
-${MID_Thailand} = merchant_th@shopping.com
-${MID_Malesia} = 458458000000000
-${MID_Myanmar} = merchant_mm@shopping.com
-${MID_Indonesia} = merchant_id@shopping.com
-
+${Ref1} =  xpath=//*[@id="txtPaymentCode"]
+${Ref2} =  xpath=//*[@id="txtInvoiceNo"]
+${AmountPath} =  xpath=//*[@id="txtAmount"]
+${Validate} =  xpath=//*[@id="btnValidate"]
+${Request XML} =  xpath=//*[@id="txtReq"]
+${Confirm} =  xpath=//*[@id="btnConfirm"]
+${PayCode}
